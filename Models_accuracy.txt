@@ -1,0 +1,9 @@
+1. vgg16.classifier[6] = nn.Linear(n_inputs, n_classes), optimizer = optim.SGD(model.classifier.parameters(), lr=0.01), batch size = 64 - 64%
+2. vgg16.classifier[6] = nn.Linear(n_inputs, n_classes), optimizer = optim.SGD(model.classifier.parameters(), lr=0.008), batch size = 64 - 61%
+3. vgg16.classifier[6] = nn.Sequential(
+    nn.Linear(n_inputs, 256),
+    nn.ReLU(),
+    nn.Dropout(0.4),
+    nn.Linear(256, n_classes)), optimizer = optim.SGD(model.classifier.parameters(), lr=0.008), batch size = 64 - 63%
+4. vgg16.classifier[6] = nn.Linear(n_inputs, n_classes), optimizer = optim.SGD(model.classifier.parameters(), lr=0.01), without normalization, batch size = 64 - 80%
+5. vgg16.classifier[6] = nn.Linear(n_inputs, n_classes), optimizer = optim.SGD(model.classifier.parameters(), lr=0.012), without normalization, batch size = 96 - 80%
